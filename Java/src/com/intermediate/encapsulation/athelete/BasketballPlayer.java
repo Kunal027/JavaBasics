@@ -1,38 +1,37 @@
-package com.intermediate.classandobjects;
+package com.intermediate.encapsulation.athelete;
 
 import java.util.Random;
 
-public class BasketballPlayer {
-    private String name;
-    private String nickname;
+public class BasketballPlayer extends Athlete {
 
-    private int yearOfBorn;
-
-    private String team;
 
     private double freeThrowPercentage;
     private double pointsPerGame;
-    private int gamesPlayed;
+
 
     public BasketballPlayer(String name, String nickname, int yearOfBorn, String team, double freeThrowPercentage, double pointsPerGame, int gamesPlayed) {
-        this.name = name;
-        this.nickname = nickname;
-        this.yearOfBorn = yearOfBorn;
-        this.team = team;
+        super(name, nickname, yearOfBorn, team, gamesPlayed);
         this.freeThrowPercentage = freeThrowPercentage;
         this.pointsPerGame = pointsPerGame;
-        this.gamesPlayed = gamesPlayed;
+
     }
 
     public  void freeThrow(){
         Random randomNumberGenerator = new Random();
 
         if((randomNumberGenerator.nextDouble() * 100) > freeThrowPercentage){
-            System.out.println(name + " failed to score free through");
+            System.out.println(super.getName() + " failed to score free through");
         }
         else{
-            System.out.println(name + " Scored a free through!!");
+            System.out.println(super.getName() + " Scored a free through!!");
         }
 
+    }
+
+    @Override
+    public void getBio(){
+        super.getBio();
+        System.out.println("Free throw percentage : " + freeThrowPercentage);
+        System.out.println("Points Per game : " + pointsPerGame);
     }
 }

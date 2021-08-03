@@ -5,6 +5,7 @@ import java.util.Locale;
 public class CarApp {
     public static void main(String[] args) {
         DodgeChallenger dodgeChallenger = new DodgeChallenger();
+        dodgeChallenger.mileage = 0;
         dodgeChallenger.startEngine();
         dodgeChallenger.getDescription();
 
